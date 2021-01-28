@@ -1,0 +1,4 @@
+FROM odoo:10.0
+USER root
+#RUN apt-get update && apt-get install git -y
+#RUN pip install https://github.com/OCA/openupgradelib.git
