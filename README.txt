@@ -1,6 +1,7 @@
 # install everyting
 git clone https://github.com/OCA/openupgradelib.git context/
 git clone https://github.com/OCA/OpenUpgrade --single-branch -b 11.0 ou11
+git clone https://github.com/OCA/OpenUpgrade --single-branch -b 12.0 ou12
 docker-compose build
 
 export PGPASSWORD=odoo
