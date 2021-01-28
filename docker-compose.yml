@@ -7,7 +7,7 @@ x-default:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
     - ./ou11:/opt/ou11
-#    - ./ou12:/opt/ou12
+    - ./ou12:/opt/ou12
   ports:
     - 8069:8069
 
@@ -35,6 +35,16 @@ services:
     '-d', 'test_upgrade',
     ]
 
+  odoo12:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./12.0_Dockerfile
+    depends_on:
+      - db
+    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
+    '-d', 'test_upgrade',
+    ]
 
   db:
     image: postgres:10
