@@ -6,49 +6,12 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
-    - ./ou11:/opt/ou11
-    - ./ou12:/opt/ou12
-    - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
     - ./vendor:/opt/vendor
   ports:
     - 8069:8069
 
 services:
-  odoo10:
-    << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./start_Dockerfile
-    depends_on:
-      - db
-    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
-    '-d', 'test_upgrade',
-    '-i', 'crm',
-    ]
-
-  odoo11:
-    << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./11.0_Dockerfile
-    depends_on:
-      - db
-    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
-    '-d', 'test_upgrade',
-    ]
-
-  odoo12:
-    << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./12.0_Dockerfile
-    depends_on:
-      - db
-    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
-    '-d', 'test_upgrade',
-    ]
-
   odoo13:
     << : *default-odoo
     build:
@@ -56,9 +19,6 @@ services:
       dockerfile: ./13.0_Dockerfile
     depends_on:
       - db
-    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
-    '-d', 'test_upgrade',
-    ]
 
   odoo14:
     << : *default-odoo
@@ -67,8 +27,8 @@ services:
       dockerfile: ./14.0_Dockerfile
     depends_on:
       - db
-    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
-    '-d', 'test_upgrade',
+    command: [
+    '-d', 'korvetlog',
     ]
 
   db:
