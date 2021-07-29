@@ -1,6 +1,7 @@
 FROM odoo:13.0
 USER root
 RUN ln -s /opt/vendor/13.0 /opt/addons
+RUN ln -s /opt/ou13 /opt/ou
 COPY ./openupgradelib /opt/openupgradelib
 
 # take away psycopg2, not to build other version
