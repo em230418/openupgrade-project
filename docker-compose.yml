@@ -8,6 +8,8 @@ x-default:
     - ./config:/etc/odoo
     - ./ou11:/opt/ou11
     - ./ou12:/opt/ou12
+    - ./ou13:/opt/ou13
+    - ./ou14:/opt/ou14
   ports:
     - 8069:8069
 
@@ -16,7 +18,7 @@ services:
     << : *default-odoo
     build:
       context: ./context
-      dockerfile: ./10.0_Dockerfile
+      dockerfile: ./start_Dockerfile
     depends_on:
       - db
     command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
@@ -40,6 +42,28 @@ services:
     build:
       context: ./context
       dockerfile: ./12.0_Dockerfile
+    depends_on:
+      - db
+    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
+    '-d', 'test_upgrade',
+    ]
+
+  odoo13:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./13.0_Dockerfile
+    depends_on:
+      - db
+    command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',
+    '-d', 'test_upgrade',
+    ]
+
+  odoo14:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./14.0_Dockerfile
     depends_on:
       - db
     command: ['--dev', 'wdb,reload,qweb,werkzeug,xml',

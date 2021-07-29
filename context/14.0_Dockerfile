@@ -1,0 +1,5 @@
+FROM odoo:14.0
+USER root
+COPY ./openupgradelib /opt/openupgradelib
+RUN python3 -m pip install -r /opt/openupgradelib/requirements.txt
+RUN python3 -m pip install /opt/openupgradelib
