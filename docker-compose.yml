@@ -10,6 +10,7 @@ x-default:
     - ./ou12:/opt/ou12
     - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
+    - ./vendor:/opt/vendor
   ports:
     - 8069:8069
 
