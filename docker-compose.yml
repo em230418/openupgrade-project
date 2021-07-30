@@ -6,6 +6,7 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
+    - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
     - ./vendor:/opt/vendor
   ports:
