@@ -1,5 +1,8 @@
 # install everyting
+cd context
 git clone https://github.com/OCA/openupgradelib.git context/
+cd ..
+
 git clone https://github.com/OCA/OpenUpgrade --single-branch -b 14.0 ou14
 docker-compose build
 
