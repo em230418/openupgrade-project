@@ -29,7 +29,7 @@ docker-compose up odoo13
 # backup database for 13.0
 echo "create database korvetlog13 with template korvetlog owner odoo;" | psql -h localhost -p 5433 postgres odoo
 
-echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['muk_autovacuum', 'muk_web_utils', 'muk_web_theme', 'muk_utils', 'iap', 'sms', 'sale_timesheet', 'website', 'stock', 'purchase', 'phone_validator', 'test_mail', 'test_perfomance', 'test_xlsx_export', 'web_unsplash', 'survey', 'hr_attendance', 'mass_mailing', 'account', 'fleet', 'gamification', 'hr_timesheet', 'odoo_referral', 'payment', 'sale', 'lunch'])]).button_immediate_uninstall()" | docker-compose run --rm odoo13 odoo shell -d korvetlog
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['muk_autovacuum', 'muk_web_utils', 'muk_web_theme', 'muk_utils', 'iap', 'sms', 'website', 'gamification', 'odoo_referral'])]).button_immediate_uninstall()" | docker-compose run --rm odoo13 odoo shell -d korvetlog
 
 # migrate
 docker-compose run --rm odoo14 odoo -d korvetlog -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework
