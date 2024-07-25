@@ -1,0 +1,12 @@
+FROM odoo:16.0
+USER root
+RUN ln -s /opt/vendor/16.0 /opt/addons
+RUN ln -s /opt/ou16 /opt/ou
+
+RUN apt-get update
+RUN apt-get install -y git python3-cssselect
+
+COPY ./openupgradelib /opt/openupgradelib
+RUN python3 -m pip install /opt/openupgradelib
+
+USER odoo

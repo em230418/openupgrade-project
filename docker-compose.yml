@@ -6,21 +6,14 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
-    - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
+    - ./ou15:/opt/ou15
+    - ./ou16:/opt/ou16
     - ./vendor:/opt/vendor
   ports:
     - 8069:8069
 
 services:
-  odoo13:
-    << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./13.0_Dockerfile
-    depends_on:
-      - db
-
   odoo14:
     << : *default-odoo
     build:
@@ -29,11 +22,33 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'korvetlog',
+    '-d', 'bluesky',
+    ]
+
+  odoo15:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./15.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'bluesky',
+    ]
+
+  odoo16:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./16.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'bluesky',
     ]
 
   db:
-    image: postgres:10
+    image: postgres:13
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
