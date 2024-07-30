@@ -11,7 +11,7 @@ x-default:
     - ./ou16:/opt/ou16
     - ./vendor:/opt/vendor
   ports:
-    - 8069:8069
+    - 127.0.0.1:9999:8069
 
 services:
   odoo14:
