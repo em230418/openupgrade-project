@@ -25,8 +25,13 @@ git clone https://github.com/OCA/account-reconcile.git --single-branch -b 15.0 v
 git clone https://github.com/OCA/account-reconcile.git --single-branch -b 16.0 vendor/16.0/account-reconcile
 
 # pos_order_remove_line
+# pos_picking_delayed
 git clone https://github.com/OCA/pos.git --single-branch -b 15.0 vendor/15.0/pos
-git clone https://github.com/OCA/pos.git --single-branch -b 16.0 vendor/16.0/pos
+git clone https://github.com/em230418/pos.git --single-branch -b 16.0-mig-pos-picking-delayed vendor/16.0/pos
+
+# queue_job
+git clone https://github.com/OCA/queue.git --single-branch -b 15.0 vendor/15.0/queue
+git clone https://github.com/OCA/queue.git --single-branch -b 16.0 vendor/16.0/queue
 
 # report_xlsx
 git clone https://github.com/OCA/reporting-engine --single-branch -b 15.0 vendor/15.0/reporting-engine
@@ -47,11 +52,16 @@ git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 15
 
 # stock_restrict_lot
 git clone https://github.com/OCA/stock-logistics-workflow --single-branch -b 15.0 vendor/15.0/stock-logistics-workflow
-git clone https://github.com/OCA/stock-logistics-workflow --single-branch -b 16.0 vendor/15.0/stock-logistics-workflow
+git clone https://github.com/OCA/stock-logistics-workflow --single-branch -b 16.0 vendor/16.0/stock-logistics-workflow
 
 # web_domain_field
+# web_notify
 git clone https://github.com/OCA/web --single-branch -b 15.0 vendor/15.0/web
 git clone https://github.com/OCA/web --single-branch -b 16.0 vendor/16.0/web
+
+# bluesky_*
+git clone git@gitlab.com:itpp/dev/private-soladrive.git --single-branch -b 14.0 vendor/15.0/it-projects-llc-addons  # yes, we are deliberatly using 14.0 branch for 15.0
+git clone git@gitlab.com:itpp/dev/private-soladrive.git --single-branch -b 16.0 vendor/16.0/it-projects-llc-addons
 
 # accounting_pdf_reports
 # om_account_accountant
@@ -60,7 +70,6 @@ git clone https://github.com/OCA/web --single-branch -b 16.0 vendor/16.0/web
 # om_account_budget
 # om_account_daily_reports
 # om_account_followup
-# om_recurring_payments
 git clone https://github.com/odoomates/odooapps --single-branch -b 15.0 vendor/15.0/odoomates
 git clone https://github.com/odoomates/odooapps --single-branch -b 16.0 vendor/16.0/odoomates
 
