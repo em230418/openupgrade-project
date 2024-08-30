@@ -15,9 +15,12 @@ git clone https://github.com/OCA/account-analytic.git --single-branch -b 15.0 ve
 git clone https://github.com/OCA/account-analytic.git --single-branch -b 16.0 vendor/16.0/account-analytic
 
 # account_journal_general_sequence
-# account_financial_report
 git clone https://github.com/OCA/account-financial-tools.git --single-branch -b 15.0 vendor/15.0/account-financial-tools
 git clone https://github.com/OCA/account-financial-tools.git --single-branch -b 16.0 vendor/16.0/account-financial-tools
+
+# account_financial_report
+git clone https://github.com/OCA/account-financial-reporting.git --single-branch -b 15.0 vendor/15.0/account-financial-reporting
+git clone https://github.com/OCA/account-financial-reporting.git --single-branch -b 16.0 vendor/16.0/account-financial-reporting
 
 # account_reconciliation_widget (15.0)
 # account_reconcile_oca (16.0)
