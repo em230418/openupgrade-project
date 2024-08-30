@@ -73,8 +73,8 @@ git clone git@gitlab.com:itpp/dev/private-soladrive.git --single-branch -b 16.0 
 # om_account_budget
 # om_account_daily_reports
 # om_account_followup
-git clone https://github.com/odoomates/odooapps --single-branch -b 15.0 vendor/15.0/odoomates
-git clone https://github.com/odoomates/odooapps --single-branch -b 16.0 vendor/16.0/odoomates
+git clone https://github.com/odoomates/odooapps --single-branch -b 15.0 --depth 1 vendor/15.0/odoomates
+git clone https://github.com/odoomates/odooapps --single-branch -b 16.0 --depth 1 vendor/16.0/odoomates
 
 # barcode_scanning_sale_purchase
 # base_account_budget
