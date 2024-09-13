@@ -6,7 +6,6 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
-    - ./ou14:/opt/ou14
     - ./ou15:/opt/ou15
     - ./ou16:/opt/ou16
     - ./vendor:/opt/vendor
@@ -14,17 +13,6 @@ x-default:
     - 127.0.0.1:9999:8069
 
 services:
-  odoo14:
-    << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./14.0_Dockerfile
-    depends_on:
-      - db
-    command: [
-    '-d', 'bluesky',
-    ]
-
   odoo15:
     << : *default-odoo
     build:
@@ -33,7 +21,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'bluesky',
+    '-d', 'prod',
     ]
 
   odoo16:
@@ -44,7 +32,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'bluesky',
+    '-d', 'prod',
     ]
 
   db:
