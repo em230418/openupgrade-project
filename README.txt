@@ -11,7 +11,7 @@ docker-compose up odoo15
 # backup database for 15.0
 echo "create database ${PGDATABASE}15 with template ${PGDATABASE} owner odoo;" | psql -h localhost -p 5433 postgres odoo
 
-echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['qr_generator'])]).button_immediate_uninstall()" | docker-compose run --rm odoo15 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['qr_generator', 'google_drive'])]).button_immediate_uninstall()" | docker-compose run --rm odoo15 odoo shell -d ${PGDATABASE}
 
 # upload fixes for migration
 # cat fixes_v15.sql | psql -h localhost -p 5433 ${PGDATABASE} odoo
