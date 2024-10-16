@@ -93,7 +93,7 @@ git clone https://github.com/CybroOdoo/CybroAddons.git --single-branch -b 16.0 v
 git clone https://github.com/CybroOdoo/OpenHRMS.git --single-branch -b 15.0 vendor/15.0/OpenHRMS
 git clone https://github.com/CybroOdoo/OpenHRMS.git --single-branch -b 16.0 vendor/16.0/OpenHRMS
 
-# https://apps.odoo.com/apps/modules/15.0/ms_report_stock
+# https://apps.odoo.com/apps/modules/17.0/ms_report_stock
 # https://apps.odoo.com/apps/modules/16.0/mass_cancel_journal_entries
 mkdir -p vendor/15.0/custom
 mkdir -p vendor/16.0/custom
