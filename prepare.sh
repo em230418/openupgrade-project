@@ -30,7 +30,7 @@ git clone https://github.com/OCA/account-reconcile.git --single-branch -b 16.0 v
 # pos_order_remove_line
 # pos_picking_delayed
 git clone https://github.com/OCA/pos.git --single-branch -b 15.0 vendor/15.0/pos
-git clone https://github.com/em230418/pos.git --single-branch -b 16.0-mig-pos-picking-delayed vendor/16.0/pos
+git clone https://github.com/OCA/pos.git --single-branch -b 16.0 vendor/16.0/pos
 
 # queue_job
 git clone https://github.com/OCA/queue.git --single-branch -b 15.0 vendor/15.0/queue
