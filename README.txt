@@ -20,10 +20,10 @@ cat fixes_v14.sql | psql -h localhost -p 5433 ${PGDATABASE} odoo
 docker-compose run --rm odoo15 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework
 
 # удаляем модули, которых нет
-echo "env['ir.module.module'].search([('name', 'in', ['web_diagram'])]).button_immediate_uninstall()" | docker-compose run --rm odoo14 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('name', 'in', ['web_diagram'])]).button_immediate_uninstall()" | docker-compose run --rm odoo15 odoo shell -d ${PGDATABASE}
 
 # устанавливаем необходимый модуль
-# echo "env['ir.module.module'].search([('name', 'in', [])]).button_immediate_install()" | docker-compose run --rm odoo14 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('name', 'in', ['stock_inventory'])]).button_immediate_install()" | docker-compose run --rm odoo15 odoo shell -d ${PGDATABASE}
 
 # run odoo 15.0, make sure everything is fine
 docker-compose up odoo15

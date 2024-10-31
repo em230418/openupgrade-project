@@ -50,8 +50,11 @@ git clone https://github.com/OCA/server-ux --single-branch -b 16.0 vendor/16.0/s
 
 # stock_request
 # stock_request_direction
+# stock_inventory (15.0+)
 git clone https://github.com/OCA/stock-logistics-request --single-branch -b 16.0 vendor/16.0/stock-logistics-request
-git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 15.0 vendor/15.0/stock-logistics-request
+git clone https://github.com/OCA/stock-logistics-request --single-branch -b 15.0 vendor/15.0/stock-logistics-request
+git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 16.0 vendor/16.0/stock-logistics-warehouse
+git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 15.0 vendor/15.0/stock-logistics-warehouse
 
 # stock_restrict_lot
 git clone https://github.com/OCA/stock-logistics-workflow --single-branch -b 15.0 vendor/15.0/stock-logistics-workflow
