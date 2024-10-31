@@ -91,8 +91,8 @@ git clone https://github.com/odoomates/odooapps --single-branch -b 16.0 --depth 
 # pos_mrp_order
 # pos_restrict
 # product_barcode
-git clone https://github.com/CybroOdoo/CybroAddons.git --single-branch -b 15.0 vendor/15.0/cybrosys
-git clone https://github.com/CybroOdoo/CybroAddons.git --single-branch -b 16.0 vendor/16.0/cybrosys
+git clone https://github.com/CybroOdoo/CybroAddons.git --depth 1 --single-branch -b 15.0 vendor/15.0/cybrosys
+git clone https://github.com/CybroOdoo/CybroAddons.git --depth 1 --single-branch -b 16.0 vendor/16.0/cybrosys
 git clone https://github.com/CybroOdoo/OpenHRMS.git --single-branch -b 15.0 vendor/15.0/OpenHRMS
 git clone https://github.com/CybroOdoo/OpenHRMS.git --single-branch -b 16.0 vendor/16.0/OpenHRMS
 
