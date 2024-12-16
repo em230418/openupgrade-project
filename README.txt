@@ -2,8 +2,11 @@
 
 export PGPASSWORD=odoo
 export PGDATABASE=migbluesky
+export DBFILENAME="../dump20241216.sql.gz"
 
 # upload database on 14.0, browse it
+echo "create database ${PGDATABASE} owner odoo;" | docker-compose run --rm -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 postgres odoo
+zcat ${DBFILENAME} | docker-compose run --rm -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 ${PGDATABASE} odoo
 docker-compose up odoo14
 
 # ---

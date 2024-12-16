@@ -50,9 +50,8 @@ git clone https://github.com/OCA/server-ux --single-branch -b 16.0 vendor/16.0/s
 
 # stock_request
 # stock_request_direction
-# stock_inventory (15.0+)
+mkdir -p vendor/15.0/stock-logistics-request
 git clone https://github.com/OCA/stock-logistics-request --single-branch -b 16.0 vendor/16.0/stock-logistics-request
-git clone https://github.com/OCA/stock-logistics-request --single-branch -b 15.0 vendor/15.0/stock-logistics-request
 git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 16.0 vendor/16.0/stock-logistics-warehouse
 git clone https://github.com/OCA/stock-logistics-warehouse --single-branch -b 15.0 vendor/15.0/stock-logistics-warehouse
 
@@ -98,6 +97,7 @@ git clone https://github.com/CybroOdoo/OpenHRMS.git --single-branch -b 16.0 vend
 
 # https://apps.odoo.com/apps/modules/17.0/ms_report_stock
 # https://apps.odoo.com/apps/modules/16.0/mass_cancel_journal_entries
+# https://apps.odoo.com/apps/modules/16.0/ak_inventory_adjustments
 mkdir -p vendor/15.0/custom
 mkdir -p vendor/16.0/custom
 
