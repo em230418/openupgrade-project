@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'bluesky',
+    '-d', 'migbluesky',
     ]
 
   odoo15:
@@ -33,7 +33,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'bluesky',
+    '-d', 'migbluesky',
     ]
 
   odoo16:
@@ -44,7 +44,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'bluesky',
+    '-d', 'migbluesky',
     ]
 
   db:
