@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -xe
 
-source ./common.sh
+. ./common.sh
 
 echo "migrate to 16 started `date`" >> log.txt
 

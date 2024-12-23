@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -xe
 
-source ./common.sh
+. ./common.sh
 
 echo "uploading 14 started `date`" >> log.txt
 
