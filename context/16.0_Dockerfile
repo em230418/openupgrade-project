@@ -6,8 +6,8 @@ RUN ln -s /opt/ou16 /opt/ou
 RUN apt-get update
 RUN apt-get install -y git python3-cssselect
 
-COPY ./stock16.patch /opt/stock16.patch
-RUN patch -d /usr/lib/python3/dist-packages/odoo/ -i /opt/stock16.patch -p1
+# COPY ./stock16.patch /opt/stock16.patch
+# RUN patch -d /usr/lib/python3/dist-packages/odoo/ -i /opt/stock16.patch -p1
 
 COPY ./openupgradelib /opt/openupgradelib
 RUN python3 -m pip install /opt/openupgradelib
