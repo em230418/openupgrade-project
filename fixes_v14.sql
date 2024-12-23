@@ -8,3 +8,4 @@ update coupon_program set active = false where id = 8;
 
 -- set rounding as "Product Unit of Measure"
 update uom_uom set rounding = 0.001 where id = 69;
+update uom_uom set rounding = 0.001 where id = 120;
