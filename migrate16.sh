@@ -15,6 +15,6 @@ cat fixes_v16.sql | docker-compose run --rm -e PGPASSWORD=${PGPASSWORD} db psql 
 echo "installing modules `date`" >> log.txt
 
 # installing other modules
-echo "env['ir.module.module'].search([('name', 'in', ['ak_inventory_adjustments'])]).button_immediate_install()" | docker-compose run --rm odoo16 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('name', 'in', ['ak_inventory_adjustments', 'l10n_sa_pos'])]).button_immediate_install()" | docker-compose run --rm odoo16 odoo shell -d ${PGDATABASE}
 
 echo "installing modules done `date`" >> log.txt
