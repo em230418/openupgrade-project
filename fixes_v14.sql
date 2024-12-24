@@ -7,4 +7,5 @@ update product_product set active = true where product_tmpl_id = 3492;
 update coupon_program set active = false where id = 8;
 
 -- set rounding as "Product Unit of Measure"
-update uom_uom set rounding = 0.001 where id in (select uom_id from product_template) and rounding < 1;
+update uom_uom set rounding = 0.001 where id in (select distinct product_uom_id from stock_move_line) and rounding < 1;
+update uom_uom set rounding = 0.001 where id in (select distinct product_uom from stock_move) and rounding < 1;
