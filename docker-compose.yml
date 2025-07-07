@@ -6,14 +6,51 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
+    - ./ou11:/opt/ou11
+    - ./ou12:/opt/ou12
+    - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
     - ./ou15:/opt/ou15
     - ./ou16:/opt/ou16
+    - ./ou17:/opt/ou17
     - ./vendor:/opt/vendor
   ports:
     - 127.0.0.1:9999:8069
 
 services:
+  odoo11:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./11.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'turboc',
+    ]
+
+  odoo12:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./12.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'turboc',
+    ]
+
+  odoo13:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./13.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'turboc',
+    ]
+
   odoo14:
     << : *default-odoo
     build:
@@ -22,7 +59,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'migbluesky',
+    '-d', 'turboc',
     ]
 
   odoo15:
@@ -33,7 +70,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'migbluesky',
+    '-d', 'turboc',
     ]
 
   odoo16:
@@ -44,7 +81,18 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'migbluesky',
+    '-d', 'turboc',
+    ]
+
+  odoo17:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./17.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'turboc',
     ]
 
   db:

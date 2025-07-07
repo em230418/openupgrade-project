@@ -1,7 +1,17 @@
 FROM odoo:12.0
 USER root
+RUN ln -s /opt/vendor/12.0 /opt/addons
+RUN ln -s /opt/ou12 /opt/ou
+
+RUN rm -f /etc/apt/sources.list && \
+    rm -f /etc/apt/sources.list.d/backports.list && \
+    echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian stretch main" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/backports.list && \
+    apt-get update && apt-get install -t stretch-backports -y \
+    python3-cssselect
+
 COPY ./openupgradelib /opt/openupgradelib
-RUN python3 -m pip install -r /opt/openupgradelib/requirements.txt
 RUN python3 -m pip install /opt/openupgradelib
 
 USER odoo
