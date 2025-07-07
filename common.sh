@@ -2,5 +2,5 @@
 set -xe
 
 export PGPASSWORD=odoo
-export PGDATABASE=migbluesky
-export DBFILENAME="../dump20241219.sql.gz"
+export PGDATABASE=turboc
+export DBFILENAME="../turbocare2020_20250707.sql.gz"
