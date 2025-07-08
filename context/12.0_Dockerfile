@@ -3,6 +3,12 @@ USER root
 RUN ln -s /opt/vendor/12.0 /opt/addons
 RUN ln -s /opt/ou12 /opt/ou
 
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons && \
+    ln -s /opt/ou/addons /usr/lib/python3/dist-packages/odoo/addons
+
+RUN rm /usr/bin/odoo && \
+    ln -s /opt/ou/odoo-bin /usr/bin/odoo
+
 RUN rm -f /etc/apt/sources.list && \
     rm -f /etc/apt/sources.list.d/backports.list && \
     echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list && \
@@ -10,6 +16,8 @@ RUN rm -f /etc/apt/sources.list && \
     echo "deb http://archive.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/backports.list && \
     apt-get update && apt-get install -t stretch-backports -y \
     python3-cssselect
+
+RUN python3 -m pip install psycopg2-binary">=2.7"
 
 COPY ./openupgradelib /opt/openupgradelib
 RUN python3 -m pip install /opt/openupgradelib
