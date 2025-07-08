@@ -2,6 +2,7 @@
 set -xe
 
 docker pull odoo:16.0
+docker pull odoo:17.0
 
 # install everyting
 cd context
