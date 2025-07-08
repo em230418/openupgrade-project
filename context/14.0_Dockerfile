@@ -4,7 +4,7 @@ RUN ln -s /opt/vendor/14.0 /opt/addons
 RUN ln -s /opt/ou14 /opt/ou
 
 RUN apt-get update
-RUN apt-get install -y git python3-cssselect python3-setuptools-scm
+RUN apt-get install -y git python3-cssselect python3-setuptools-scm python3-wheel
 
 COPY ./openupgradelib /opt/openupgradelib
 RUN python3 -m pip install /opt/openupgradelib
