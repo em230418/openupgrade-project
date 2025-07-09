@@ -1,5 +1,3 @@
-version: '3.4'
-
 x-default:
   &default-odoo
   tty: true
@@ -16,6 +14,20 @@ x-default:
     - ./vendor:/opt/vendor
   ports:
     - 127.0.0.1:9999:8069
+
+x-defaultdev:
+  &default-odoodev
+  tty: true
+  volumes:
+    - odoo-web-data:/var/lib/odoo
+    - ./config:/etc/odoo
+    - ../../common:/mnt/common:ro
+    - ./:/mnt/project:ro
+  ports:
+    - 127.0.0.1:9999:8069
+  environment:
+    - WDB_SOCKET_SERVER=wdb
+    - WDB_NO_BROWSER_AUTO_OPEN=True
 
 services:
   odoo11:
@@ -94,6 +106,22 @@ services:
     command: [
     '-d', 'turboc',
     ]
+
+  dev:
+    << : *default-odoodev
+    image: my/odoo:17.0
+    depends_on:
+      - db
+      - wdb
+    command: [
+    '-d', 'turboc',
+    '--addons-path', '/mnt/project/vendor/17.0/custom/,/mnt/common/odoo/odoo/addons',
+    ]
+
+  wdb:
+    image: kozea/wdb:3.3.0
+    ports:
+      - "1984:1984"
 
   db:
     image: postgres:13
