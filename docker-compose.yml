@@ -11,6 +11,7 @@ x-default:
     - ./ou15:/opt/ou15
     - ./ou16:/opt/ou16
     - ./ou17:/opt/ou17
+    - ./ou18:/opt/ou18
     - ./vendor:/opt/vendor
   ports:
     - 127.0.0.1:9999:8069
@@ -38,7 +39,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo12:
@@ -49,18 +50,19 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo13:
     << : *default-odoo
-    build:
-      context: ./context
-      dockerfile: ./13.0_Dockerfile
+    image: odoo:13.0
+#    build:
+#      context: ./context
+#      dockerfile: ./13.0_Dockerfile
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo14:
@@ -71,7 +73,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo15:
@@ -82,7 +84,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo16:
@@ -93,7 +95,7 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     ]
 
   odoo17:
@@ -104,17 +106,28 @@ services:
     depends_on:
       - db
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
+    ]
+
+  odoo18:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./18.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'db',
     ]
 
   dev:
     << : *default-odoodev
-    image: my/odoo:17.0
+    image: my/odoo:18.0
     depends_on:
       - db
       - wdb
     command: [
-    '-d', 'turboc',
+    '-d', 'db',
     '--addons-path', '/mnt/project/vendor/17.0/custom/,/mnt/common/odoo/odoo/addons',
     ]
 
@@ -142,4 +155,10 @@ services:
 
 volumes:
   odoo-web-data:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
   odoo-db-data:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
