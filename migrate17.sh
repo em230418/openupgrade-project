@@ -12,4 +12,4 @@ echo "migrate to 17 ended  `date`" >> log.txt
 echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['account_statement_import_file'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo17 odoo shell -d ${PGDATABASE}
 
 # upload fixes for migration
-cat fixes_v17.sql | docker compose run --rm -T -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 ${PGDATABASE} odo
+cat fixes_v17.sql | docker compose run --rm -T -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 ${PGDATABASE} odoo
