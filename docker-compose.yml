@@ -55,10 +55,9 @@ services:
 
   odoo13:
     << : *default-odoo
-    image: odoo:13.0
-#    build:
-#      context: ./context
-#      dockerfile: ./13.0_Dockerfile
+    build:
+      context: ./context
+      dockerfile: ./13.0_Dockerfile_noou
     depends_on:
       - db
     command: [

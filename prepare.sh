@@ -27,6 +27,13 @@ git clone https://github.com/OCA/OpenUpgrade --single-branch -b 16.0 ou16
 git clone https://github.com/OCA/OpenUpgrade --single-branch -b 17.0 ou17
 git clone https://github.com/OCA/OpenUpgrade --single-branch -b 18.0 ou18
 
+git clone https://github.com/odoomates/odooapps.git -b 13.0 --depth 1 --single-branch vendor/13.0/om
+git clone https://github.com/odoomates/odooapps.git -b 14.0 --depth 1 --single-branch vendor/14.0/om
+git clone https://github.com/odoomates/odooapps.git -b 15.0 --depth 1 --single-branch vendor/15.0/om
+git clone https://github.com/odoomates/odooapps.git -b 16.0 --depth 1 --single-branch vendor/16.0/om
+git clone https://github.com/odoomates/odooapps.git -b 17.0 --depth 1 --single-branch vendor/17.0/om
+git clone https://github.com/odoomates/odooapps.git -b 18.0 --depth 1 --single-branch vendor/18.0/om
+
 export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 
