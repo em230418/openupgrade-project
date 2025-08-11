@@ -17,4 +17,4 @@ echo "removing unused modules `date`" >> log.txt
 echo "uploading fixes `date`" >> log.txt
 
 # upload fixes for migration
-# cat fixes_v13.sql | docker compose run --rm -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 ${PGDATABASE} odoo
+cat fixes_v13.sql | docker compose run --rm -e PGPASSWORD=${PGPASSWORD} -T db psql -h db -p 5432 ${PGDATABASE} odoo

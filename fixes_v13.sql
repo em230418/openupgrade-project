@@ -1,1 +1,3 @@
-update ir_module_module set auto_install = false where name in ('iap', 'account_bank_statement_import');
+UPDATE res_groups
+SET name = 'Allow to define fiscal years of more or less than a year (deprecated)'
+WHERE name = 'Allow to define fiscal years of more or less than a year';
