@@ -32,4 +32,11 @@ def main(env):
                 "res_id": record.id,
             })
 
+    env["ir.model.data"].search([
+        ("module", "=", "om_account_accountant"),
+        ("name", "=", "group_fiscal_year"),
+    ]).write({
+        "module": "om_fiscal_year",
+    })
+
 main(env); env.cr.commit()

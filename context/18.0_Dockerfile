@@ -7,6 +7,6 @@ RUN apt-get update
 RUN apt-get install -y git python3-cssselect
 
 COPY ./openupgradelib /opt/openupgradelib
-RUN python3 -m pip install /opt/openupgradelib
+RUN python3 -m pip install --break-system-packages /opt/openupgradelib
 
 USER odoo

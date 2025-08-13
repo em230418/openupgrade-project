@@ -12,7 +12,7 @@ echo "uploading 13 finished `date`" >> log.txt
 
 echo "removing unused modules `date`" >> log.txt
 
-#echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['add_remove_follower_omax', 'automatic_backup', 'ehcs_signup_captcha', 'iap', 'account_asset', 'account_budget', 'account_bank_statement_import'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo13 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['account_bank_statement_import', 'base_gengo'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo13 odoo shell -d ${PGDATABASE}
 
 echo "uploading fixes `date`" >> log.txt
 
