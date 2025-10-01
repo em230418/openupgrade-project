@@ -12,7 +12,7 @@ echo "uploading 16 finished `date`" >> log.txt
 
 echo "removing unused modules `date`" >> log.txt
 
-echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['mrp_repair', 'hide_odoo_brand_in_top_right_corner', 'l10n_de_sale'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo16 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['mrp_repair', 'hide_odoo_brand_in_top_right_corner', 'l10n_de_sale', 'crm_project_task', 'om_account_bank_statement_import', 'sale_quotation_builder'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo16 odoo shell -d ${PGDATABASE}
 
 echo "uploading fixes `date`" >> log.txt
 
