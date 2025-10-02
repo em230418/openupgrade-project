@@ -4,11 +4,6 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
-    - ./ou11:/opt/ou11
-    - ./ou12:/opt/ou12
-    - ./ou13:/opt/ou13
-    - ./ou14:/opt/ou14
-    - ./ou15:/opt/ou15
     - ./ou16:/opt/ou16
     - ./ou17:/opt/ou17
     - ./ou18:/opt/ou18
@@ -72,7 +67,6 @@ services:
       - wdb
     command: [
     '-d', 'db',
-    '--addons-path', '/mnt/project/vendor/17.0/custom/,/mnt/common/odoo/odoo/addons',
     ]
 
   wdb:
