@@ -5,7 +5,7 @@ set -xe
 
 echo "migrate to 18 started `date`" >> log.txt
 
-docker compose run --rm odoo18 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework
+docker compose run --rm odoo18 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework,module_change_auto_install
 
 echo "migrate to 18 ended  `date`" >> log.txt
 
