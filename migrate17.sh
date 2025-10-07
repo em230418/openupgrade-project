@@ -7,6 +7,8 @@ echo "migrate to 17 started `date`" >> log.txt
 
 docker compose run --rm odoo17 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework
 
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['om_account_bank_statement_import'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo17 odoo shell -d ${PGDATABASE}
+
 echo "migrate to 17 ended  `date`" >> log.txt
 
 # upload fixes for migration
