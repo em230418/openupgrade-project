@@ -50,6 +50,14 @@ git clone https://github.com/OCA/account-financial-tools.git -b 16.0 $(addref /o
 git clone https://github.com/OCA/account-financial-tools.git -b 17.0 $(addref /opt/odoo-projects/17.0/common/OCA/account-financial-tools) --single-branch vendor/17.0/account-financial-tools
 git clone https://github.com/OCA/account-financial-tools.git -b 18.0 $(addref /opt/odoo-projects/18.0/common/OCA/account-financial-tools) --single-branch vendor/18.0/account-financial-tools
 
+
+mkdir vendor/13.0/account-financial-reporting
+mkdir vendor/14.0/account-financial-reporting
+mkdir vendor/15.0/account-financial-reporting
+mkdir vendor/16.0/account-financial-reporting
+mkdir vendor/17.0/account-financial-reporting
+git clone https://github.com/OCA/account-financial-reporting.git -b 18.0 $(addref /opt/odoo-projects/18.0/common/OCA/account-financial-reporting) --single-branch vendor/18.0/account-financial-reporting
+
 export DOCKER_BUILDKIT=0
 export COMPOSE_DOCKER_CLI_BUILD=0
 
