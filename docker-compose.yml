@@ -4,6 +4,7 @@ x-default:
   volumes:
     - odoo-web-data:/var/lib/odoo
     - ./config:/etc/odoo
+    - ./ou12:/opt/ou12
     - ./ou13:/opt/ou13
     - ./ou14:/opt/ou14
     - ./ou15:/opt/ou15
@@ -29,11 +30,22 @@ x-defaultdev:
     - WDB_NO_BROWSER_AUTO_OPEN=True
 
 services:
+  odoo12:
+    << : *default-odoo
+    build:
+      context: ./context
+      dockerfile: ./12.0_Dockerfile
+    depends_on:
+      - db
+    command: [
+    '-d', 'db',
+    ]
+
   odoo13:
     << : *default-odoo
     build:
       context: ./context
-      dockerfile: ./13.0_Dockerfile_noou
+      dockerfile: ./13.0_Dockerfile
     depends_on:
       - db
     command: [

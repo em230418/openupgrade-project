@@ -1,0 +1,6 @@
+FROM odoo:12.0
+USER root
+RUN ln -s /opt/vendor/12.0 /opt/addons
+RUN ln -s /opt/ou12 /opt/ou
+
+USER odoo
