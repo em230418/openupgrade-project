@@ -9,8 +9,13 @@ RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons && \
 RUN rm /usr/bin/odoo && \
     ln -s /opt/ou/odoo-bin /usr/bin/odoo
 
-RUN apt-get update
-RUN apt-get install -y git python3-cssselect python3-wheel
+RUN rm -f /etc/apt/sources.list && \
+    rm -f /etc/apt/sources.list.d/backports.list && \
+    echo "deb http://archive.debian.org/debian-security buster/updates main" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian buster main" >> /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian buster-backports main" >> /etc/apt/sources.list.d/backports.list && \
+    apt-get update && apt-get install -t buster-backports -y \
+    git python3-cssselect python3-wheel
 
 COPY ./openupgradelib /opt/openupgradelib
 RUN python3 -m pip install /opt/openupgradelib

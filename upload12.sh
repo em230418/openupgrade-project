@@ -12,7 +12,7 @@ echo "uploading 12 finished `date`" >> log.txt
 
 echo "removing unused modules `date`" >> log.txt
 
-# echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['account_bank_statement_import', 'base_gengo', 'om_account_budget', 'om_account_asset', 'generic_excel_reports'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo12 odoo shell -d ${PGDATABASE}
+echo "env['ir.module.module'].search([('state', '=', 'installed'), ('name', 'in', ['muk_web_theme', 'muk_web_theme_mail', 'muk_fields_lobject', 'dms', 'stormoff_approve_invoice'])]).button_immediate_uninstall()" | docker compose run --rm -T odoo12 odoo shell -d ${PGDATABASE}
 
 echo "uploading fixes `date`" >> log.txt
 
