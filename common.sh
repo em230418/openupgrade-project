@@ -3,4 +3,4 @@ set -xe
 
 export PGPASSWORD=odoo
 export PGDATABASE=db
-export DBFILENAME="../backup20251023.sql.gz"
+export DBFILENAME="../stormoff18/backup20260619.sql.gz"

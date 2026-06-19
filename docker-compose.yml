@@ -115,7 +115,7 @@ services:
       - wdb
     command: [
     '-d', 'db',
-    '--addons-path', '/mnt/project/vendor/17.0/custom/,/mnt/common/odoo/odoo/addons',
+    '--addons-path', '/mnt/common/odoo/odoo/addons,/mnt/project/vendor/18.0/stormoff-addons,/mnt/project/vendor/18.0/crm,/mnt/project/vendor/18.0/server-tools,/mnt/project/vendor/18.0/web,/mnt/project/vendor/18.0/server-ux,/mnt/project/vendor/18.0/custom',
     ]
 
   wdb:
@@ -131,7 +131,7 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-db-data-pers:/var/lib/postgresql/data/pgdata
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
     ports:
       - "5433:5432"
     command: ['postgres',
@@ -149,5 +149,5 @@ volumes:
     driver_opts:
       type: tmpfs
       device: tmpfs
-      o: "size=13.5G"
+      o: "size=29g"
   odoo-db-data-pers:

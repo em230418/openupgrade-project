@@ -61,3 +61,6 @@ docker compose build
 
 docker compose up -d db
 sleep 5
+
+# upload fixes for migration
+cat auditlog_line_stop1.sql | docker compose run --rm -T -e PGPASSWORD=${PGPASSWORD} db psql -h db -p 5432 ${PGDATABASE} odoo
