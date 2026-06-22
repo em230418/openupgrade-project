@@ -10,6 +10,6 @@ cat prefixes_v15.sql | docker compose run --rm -T -e PGPASSWORD=${PGPASSWORD} db
 
 cat prefixes_v15.py | docker compose run --rm -T odoo15 odoo shell -d ${PGDATABASE}
 
-docker compose run --rm odoo15 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework
+docker compose run --rm odoo15 odoo -d ${PGDATABASE} -u all -c /etc/odoo/odoo.conf --stop-after-init --load=base,web,openupgrade_framework,module_change_auto_install
 
 echo "migrate to 15 ended  `date`" >> log.txt
